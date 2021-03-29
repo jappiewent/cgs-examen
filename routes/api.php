@@ -17,3 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::apiResource('customers', \App\Http\Controllers\CustomerController::class);
+Route::apiResource('trucks', \App\Http\Resources\TruckResource::class);
+Route::apiResource('shipments', \App\Http\Resources\ShipmentResource::class);
