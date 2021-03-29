@@ -18,4 +18,18 @@ class CustomerController extends Controller
         $customer->addMediaFromRequest('logo')->toMediaCollection('logo');
         return CustomerResource::make($customer);
     }
+
+    public function index()
+    {
+        $customers[] = ['value' => null, 'text' => 'Please select a customer...'] ;
+
+        foreach (Customer::all() as $customer) {
+            $customers[] = [
+                'value' => $customer->id,
+                'name' => $customer->name,
+            ];
+        }
+
+        return response()->json($customers);
+    }
 }

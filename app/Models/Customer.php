@@ -29,7 +29,7 @@ class Customer extends Model implements HasMedia
         return $this->hasMany(Shipment::class);
     }
 
-    public function truck()
+    public function trucks()
     {
         return $this->morphMany(Truck::class, 'truckable');
     }
